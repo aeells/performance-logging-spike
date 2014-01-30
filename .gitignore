@@ -1,0 +1,18 @@
+*.class
+.DS_Store
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# IntelliJ #
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# build #
+logs/
+target/
+
