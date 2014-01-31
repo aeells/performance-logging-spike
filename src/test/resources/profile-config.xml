@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Note how the aop namespace is defined in the top-level beans element -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+    <!--
+      Including this aspectj-autoproxy element will cause spring to automatically create proxies around any beans
+      defined in this file that match the pointcuts of any aspects defined in this file.
+    -->
+    <aop:aspectj-autoproxy/>
+
+    <!--
+      Declare the TimingAspect that we want to weave into the other beans defined in this config file.
+    -->
+    <bean id="timingAspect" class="org.perf4j.slf4j.aop.TimingAspect"/>
+
+    <!--
+      Because we included the aspectj-autoproxy element, Spring will automatically create a proxy for this bean that
+      runs the TimingAspect around any public @Profiled methods on this bean.
+    -->
+    <bean id="operation" class="com.aeells.Operation"/>
+
+</beans>
