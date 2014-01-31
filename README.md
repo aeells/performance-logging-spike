@@ -7,3 +7,5 @@ performance-logging-spike
 - Logback [1.0.13] Impl
 
 Spring bean profiled with timing statistics that are applied via AOP (non-invasive) and output via Logback.
+
+- java -jar ~/.m2/repository/org/perf4j/perf4j/0.9.16/perf4j-0.9.16.jar ./logs/perf4j.log
